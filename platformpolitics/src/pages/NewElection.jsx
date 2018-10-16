@@ -13,10 +13,10 @@ class NewElection extends Component {
           <input className='electionsInput' type='text' placeholder='name...' />
 
           <div className='electionsDescription'>candidate 1 twitter handle:</div>
-          <input className='electionsInput' type='text' placeholder='name...' />
+          <input className='electionsInput' type='text' placeholder='@i-am-a-handle...' />
 
           <div className='electionsDescription'>candidate 2 twitter handle:</div>
-          <input className='electionsInput' type='text' placeholder='name...' />
+          <input className='electionsInput' type='text' placeholder='@i-too-am-a-handle...' />
 
           <button className='button1'>build model</button>
         </div>

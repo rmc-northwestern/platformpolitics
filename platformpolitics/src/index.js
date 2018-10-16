@@ -5,7 +5,6 @@ import {BrowserRouter, Route} from 'react-router-dom';
 
 // PAGE IMPORTS
 import App from './App';
-import Home from './components/Home';
 import Elections from './pages/Elections';
 import NewElection from './pages/NewElection';
 
