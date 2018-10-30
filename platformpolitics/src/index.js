@@ -6,7 +6,10 @@ import {BrowserRouter, Route} from 'react-router-dom';
 // PAGE IMPORTS
 import App from './App';
 import Elections from './pages/Elections';
+import Election from './pages/Election';
 import NewElection from './pages/NewElection';
+import SelectedCandidate from './pages/SelectedCandidate';
+import ThankYou from './pages/ThankYou';
 
 class Routes extends React.Component {
 
@@ -17,6 +20,9 @@ class Routes extends React.Component {
         <Route exact path="/" component={App}/>
         <Route exact path="/elections" component={Elections}/>
         <Route exact path="/newelection" component={NewElection}/>
+        <Route exact path="/election" component={Election}/>
+        <Route exact path="/selectedCandidate" component={SelectedCandidate}/>
+        <Route exact path='/thankyou' component={ThankYou}/>
       </div>
     )
   }

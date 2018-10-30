@@ -174,3 +174,115 @@ a{
   border: 0px;
   box-shadow: 1px 1px 5px 1px #bbbbbb;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* ELECTION CLASSES */
+
+
+.candidateOuterContainer{
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+
+.candidateInnerContainer{
+  width: 40%;
+  display: inline-block;
+  margin: 0px 10px 20px 10px;
+  text-align: center;
+}
+
+.candidateInnerContainerSelected{
+  background-color: #9bc5e8;
+  border-radius: 20px;
+  box-shadow: 1px 1px 30px -8px #777777;
+}
+
+.candidateImg{
+  object-fit: cover;
+  width:120px;
+  height:120px;
+  border-radius: 50%;
+  margin: 10px
+}
+
+.candidateName{
+  font-size: 18pt;
+  font-weight: 300;
+  color: #333333;
+}
+
+.candidateParty{
+  font-size: 10pt;
+  font-weight: 600;
+  color: #777777;
+  padding-bottom: 20px;
+}
+
+.selectedCandidateContainer{
+  border-radius: 20px;
+  box-shadow: 1px 1px 30px -8px #777777;
+  padding: 15px;
+}
+
+.selectedCandidateText{
+  width: 100%;
+  font-size: 16pt;
+  font-weight: 200;
+  color: #666666;
+  line-height: .9;
+  text-align: left;
+}
+
+.selectedCandidateName{
+  width: 100%;
+  font-size: 28pt;
+  font-weight: 700;
+  color: #666666;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.selectedCandidateKeywords{
+  width: 100%;
+  font-size: 12pt;
+  font-weight: 600;
+  color: #666666;
+  text-align: left;
+  margin: 5px 0px;
+}
+
+
+
+
+
+
+
+
+
+/* THANK YOU CLASSES */
+
+.thankYouImg{
+  height: 130px;
+  display: inline-block;
+}
+
+.thankYouSubtitle{
+  display: inline-block;
+  width: 150px;
+  margin:15px 0px;
+  font-size:24pt;
+  font-weight: 200;
+  color: #666666;
+  line-height: .9;
+}

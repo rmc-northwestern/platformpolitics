@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Headbar from '../components/Headbar';
+import { Link } from 'react-router-dom';
 
 class NewElection extends Component {
   render() {
@@ -18,7 +19,7 @@ class NewElection extends Component {
           <div className='electionsDescription'>candidate 2 twitter handle:</div>
           <input className='electionsInput' type='text' placeholder='@i-too-am-a-handle...' />
 
-          <button className='button1'>build model</button>
+          <Link to='/thankyou'><button className='button1'>build model</button></Link>
         </div>
       </div>
     );
