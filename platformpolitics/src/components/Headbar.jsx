@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Back from './Back';
-import Sidebar from './Sidebar'
+import Sidebar from './Sidebar';
+import { Link } from 'react-router-dom';
 
 class Headbar extends Component {
 
@@ -36,7 +37,7 @@ class Headbar extends Component {
         <div className='headbarContainer'>
           {this.renderBack()}
           {this.renderSidebar()}
-          <img className='headbarLogo' src='/img/logo.png' alt='logo'/>
+          <Link to='/'><img className='headbarLogo' src='/img/logo.png' alt='logo'/></Link>
           <img className='headbarMenu' src='/img/menu.png' alt='menu' onClick={()=>this.toggleSidebar()}/>
         </div>
       </div>
