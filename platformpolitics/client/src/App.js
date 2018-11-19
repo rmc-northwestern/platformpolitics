@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Headbar from './components/Headbar';
 import Home from './components/Home';
-import Customers from './components/Customers';
 
 class App extends Component {
   render() {
@@ -10,7 +9,6 @@ class App extends Component {
       <div>
         <Headbar/>
         <Home />
-        <Customers/>
       </div>
     );
   }
