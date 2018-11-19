@@ -3,7 +3,7 @@ import Headbar from '../components/Headbar';
 import { Link } from 'react-router-dom';
 import Candidate from '../components/Candidate';
 
-class Election extends Component {
+class SelectedCandidate extends Component {
 
   render() {
     const tempList = ['Illinois District 1', 'Illinois District 2', 'Illinois District 3', 'Illinois District 4', 'Illinois District 5', 'Illinois District 6']
@@ -21,15 +21,23 @@ class Election extends Component {
               img='/img/phanatic.jpg'
               name='Phanatic'
               party='Republican'
+              handle='@True_Phanatic'
+              selected={false}
               />
             <Candidate
               img='/img/gritty.jpg'
               name='Gritty'
               party='Democrat'
+              handle='@GrittyNHL'
+              selected={true}
               />
-            <div className='electionsDescription'>enter a twitter handle:</div>
-              <input className='electionsInput' type='text' placeholder='@i-am-a-handle...' />
-            <Link to='/selectedCandidate'><button className='button1'>test your tweets</button></Link>
+            <div className='selectedCandidateContainer'>
+              <div className='selectedCandidateText'>your candidate:</div>
+              <div className='selectedCandidateName'>Gritty</div>
+              <div className='selectedCandidateText'>top keywords:</div>
+              <div className='selectedCandidateKeywords'>philadelphia, civil rights, googly eyes</div>
+            </div>
+            <Link to='/elections'><button className='button1'>see another election</button></Link>
           </div>
         </div>
       </div>
@@ -37,4 +45,4 @@ class Election extends Component {
   }
 }
 
-export default Election;
+export default SelectedCandidate;

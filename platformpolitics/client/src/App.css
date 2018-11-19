@@ -32,6 +32,17 @@ a{
   font-weight: 300;
 }
 
+.button1:hover{
+  transform: scale(1.05);
+  box-shadow: 3px 3px 30px 2px #BBBBBB;
+  cursor: pointer;
+}
+
+.button1:active{
+  transform: scale(1.02);
+  box-shadow: 0px 0px 0px 0px;
+}
+
 .backButton{
   height: 30px;
   position: absolute;
@@ -48,6 +59,7 @@ a{
   height: 60px;
   box-shadow: 1px 1px 10px -3px #999999;
   text-align: center;
+  position: fixed;
 }
 
 .headbarLogo{
@@ -71,7 +83,14 @@ a{
 /* SIDEBAR CLASSES */
 
 
-
+.sidebarLink{
+  display:block;
+  padding: 20px;
+  text-decoration: none;
+  font-size: 24pt;
+  font-weight: 200;
+  color: #666;
+}
 
 
 
@@ -94,7 +113,7 @@ a{
   color: #666666;
   line-height: .9;
   text-align: left;
-  margin-top: 40px;
+  margin-top: 100px;
 }
 
 .homeSubtitle{
@@ -135,16 +154,20 @@ a{
   line-height: .9;
   text-align: left;
   margin: 20px 0px;
+  padding-top: 60px;
 }
 
 .electionsListContainer{
   text-align: left;
+  overflow: scroll;
+  max-height: 330px;
+  text-align: center;
 }
 
 .electionsListElement{
   background-color: #9bc5e8;
   border-radius: 20px;
-  padding: 10px 20px;
+  padding: 10px 18px;
   box-shadow: 1px 1px 5px .5px #999999;
   color: white;
   border: 0px;
@@ -153,6 +176,9 @@ a{
   text-decoration: none;
   font-weight: 700;
   letter-spacing: 1px;
+  width: 85%;
+  margin-left: 2px;
+  text-align: left;
 }
 
 .electionsDescription{
@@ -208,6 +234,7 @@ a{
   background-color: #9bc5e8;
   border-radius: 20px;
   box-shadow: 1px 1px 30px -8px #777777;
+  padding-right: 10px;
 }
 
 .candidateImg{
@@ -228,7 +255,14 @@ a{
   font-size: 10pt;
   font-weight: 600;
   color: #777777;
+}
+
+.candidateHandle{
+  font-size: 10pt;
+  font-weight: 600;
+  color: #4682b4;
   padding-bottom: 20px;
+  text-decoration: underline;
 }
 
 .selectedCandidateContainer{

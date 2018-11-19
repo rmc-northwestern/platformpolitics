@@ -26,7 +26,7 @@ class Headbar extends Component {
   renderSidebar(){
     if (this.state.sidebar){
       return(
-        <Sidebar/>
+        <Sidebar toggle={this.toggleSidebar.bind(this)}/>
       )
     }
   }

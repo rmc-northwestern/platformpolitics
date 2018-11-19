@@ -4,9 +4,21 @@ import { Link } from 'react-router-dom';
 
 class Elections extends Component {
 
+  constructor() {
+    super();
+    this.state = {
+      elections: []
+    };
+  }
+
+  componentDidMount() {
+    fetch('/api/elections')
+      .then(res => res.json())
+      .then(elections => this.setState({elections}, () => console.log('Elections fetched...', elections)));
+  }
+
   render() {
-    const tempList = ['Illinois District 1', 'Illinois District 2', 'Illinois District 3', 'Illinois District 4', 'Illinois District 5', 'Illinois District 6']
-    const electionsList = tempList.map((election)=>{
+    const electionsList = this.state.elections.map((election)=>{
       return(
         <Link to='/election'>
           <div className='electionsListElement'>{election}</div>
