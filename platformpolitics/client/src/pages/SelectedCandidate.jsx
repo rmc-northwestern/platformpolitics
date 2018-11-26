@@ -48,11 +48,9 @@ class SelectedCandidate extends Component {
                 />
               <div className='selectedCandidateContainer'>
                 <div className='selectedCandidateText'>your candidate:</div>
-                <div className='selectedCandidateName'>Gritty</div>
-                <div className='selectedCandidateText'>top keywords:</div>
-                <div className='selectedCandidateKeywords'>philadelphia, civil rights, googly eyes</div>
+                <div className='selectedCandidateName'>{this.state.selectedCandidate}</div>
               </div>
-              <Link to='/elections'><button className='button1'>see another election</button></Link>
+              <Link to='/elections'><button className='button1'>more elections...</button></Link>
             </div>
           </div>
         </div>
