@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 class Candidate extends Component {
 
   selectClass(){
-    if (this.props.selected){
+    console.log([this.props.handle, this.props.selected]);
+    if (this.props.handle === this.props.selected){
       return 'candidateInnerContainer candidateInnerContainerSelected'
     }
     return 'candidateInnerContainer'

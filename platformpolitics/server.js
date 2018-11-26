@@ -17,7 +17,7 @@ app.get('/api/elections', (req, res) => {
 app.get('/api/candidate/:handle', (req,res)=>{
   var child = spawn('python',[pythonscript])
   child.stdout.on('data', function(data) {
-    res.json(data);
+    res.send(data.toString());
   })
 })
 
