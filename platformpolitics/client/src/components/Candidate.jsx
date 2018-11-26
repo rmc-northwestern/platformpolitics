@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 class Candidate extends Component {
 
@@ -14,7 +13,7 @@ class Candidate extends Component {
     var twitterurl = 'https://twitter.com/' + this.props.handle
     return (
       <div className={this.selectClass()}>
-        <img className='candidateImg' src={this.props.img} />
+        <img className='candidateImg' src={this.props.img} alt={this.props.handle}/>
         <div className='candidateName'>{this.props.name}</div>
         <div className='candidateParty'>{this.props.party}</div>
         <a href={twitterurl} target='_blank'><div className='candidateHandle'>{this.props.handle}</div></a>

@@ -6,10 +6,6 @@ import Candidate from '../components/Candidate';
 class Election extends Component {
 
   render() {
-    const tempList = ['Illinois District 1', 'Illinois District 2', 'Illinois District 3', 'Illinois District 4', 'Illinois District 5', 'Illinois District 6']
-    const electionsList = tempList.map((election)=>{
-      return(<div className='electionsListElement'>{election}</div>)
-    })
 
     return (
       <div>
