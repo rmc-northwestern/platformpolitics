@@ -1,11 +1,12 @@
 const express = require('express');
-var spawn = require('child_process').spawn
 
 const app = express();
 
+
+var spawn = require('child_process').spawn
+
 const pythonscript = __dirname + '/test.py'
 console.log(pythonscript, 'says the following:  ')
-
 
 var child = spawn('python',[pythonscript], {
   stdio: 'inherit'
