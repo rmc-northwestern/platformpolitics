@@ -5,7 +5,22 @@ import Candidate from '../components/Candidate';
 
 class SelectedCandidate extends Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      selectedCandidate:''
+    }
+  }
+
+  componentDidMount() {
+    var apiPath = '/api/candidate/' + this.props.match.params.handle
+    fetch(apiPath)
+      .then(res => res.json())
+      .then(candidate => this.setState({candidate}, () => console.log('Candidate selections fetched...', candidate)));
+  }
+
   render() {
+    console.log(this.state.selectedCandidate)
 
     return (
       <div>

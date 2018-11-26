@@ -1,1 +1,1 @@
-print('python function can return data to node.')
+print('python data fetched')

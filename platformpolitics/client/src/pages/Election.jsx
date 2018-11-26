@@ -5,7 +5,21 @@ import Candidate from '../components/Candidate';
 
 class Election extends Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      handle:''
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({handle: event.target.value});
+  }
+
   render() {
+    console.log('current handle: ',this.state.handle)
+    var handleURL = '/selectedCandidate/' + this.state.handle
 
     return (
       <div>
@@ -26,8 +40,8 @@ class Election extends Component {
               handle='@GrittyNHL'
               />
             <div className='electionsDescription'>enter a twitter handle:</div>
-              <input className='electionsInput' type='text' placeholder='@i-am-a-handle...' />
-            <Link to='/selectedCandidate'><button className='button1'>test your tweets</button></Link>
+              <input className='electionsInput' type='text' placeholder='@i-am-a-handle...'  onChange={this.handleChange} />
+            <Link to={handleURL}><button className='button1'>test your tweets</button></Link>
           </div>
         </div>
       </div>
