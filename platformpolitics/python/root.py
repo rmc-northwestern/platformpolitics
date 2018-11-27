@@ -1,32 +1,23 @@
-from gatherIndividualsTweets import getPersonsData
-from nlp import predict_vote
+from nlp import predict_vote, create_model
+from functionToGatherTweets import gatherTweets
+
 import pickle
 
-dummy1 = 5
-dummy2 = 6
 
 def create_race(name, candidates):
-    for candidtate in candidates:
-        # with open(name + '/' + candidtate + "/1", "wb") as f:
-        with open(candidtate, "wb") as f:
-            pickle.dump(dummy1, f)
+    # gatherTweets(name, candidates[0], candidates[1])
+    create_model(name)
 
-create_race("test", ["dumb", "dumber"])
+#create_race("TXSen",[])
 
-dumb = open("dumb", "rb")
-print(pickle.load(dumb))
 #-------------- Predicting a vote
 
-inp = input("Enter a twitter handle: ")
+handle = input("Enter a twitter handle: ")
+name = input("Enter a race name: ")
 print("Predicting . . .")
 
-in_tweets = getPersonsData(inp)
 
-predict_corpus = ""
 
-for tweet in in_tweets:
-    predict_corpus += tweet
-
-print(predict_vote(predict_corpus))
+print(predict_vote(name, handle))
 
 #sublinear tf
