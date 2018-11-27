@@ -20,18 +20,18 @@ def create_model(basedir = "TXSen"):
 
     #create labels and list of file paths, ignore non .txt
     for folder in os.listdir(basedir):
-        print(basedir + '/' + folder)
-        for filename in os.listdir(basedir + '/' + folder)[:1000]:
+        print("races/" + basedir + '/' + folder)
+        for filename in os.listdir("races/" + basedir + '/' + folder)[:1000]:
             if filename.endswith(".txt"):
                 labels.append(folder)
-                users.append(basedir + '/' + folder + '/' + filename)
+                users.append("races/" + basedir + '/' + folder + '/' + filename)
             else:
                 continue
         #the first 1000 users are training set, the other 500 are test
-        for filename in os.listdir(basedir + '/' + folder)[1000:]:
+        for filename in os.listdir("races/" + basedir + '/' + folder)[1000:]:
             if filename.endswith(".txt"):
                 test_labels.append(folder)
-                test_users.append(basedir + '/' + folder + '/' + filename)
+                test_users.append("races/" + basedir + '/' + folder + '/' + filename)
             else:
                 continue
 
