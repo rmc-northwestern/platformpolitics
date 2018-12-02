@@ -5,7 +5,9 @@ const app = express();
 
 var spawn = require('child_process').spawn
 
-const pythonscript = __dirname + '/test.py'
+const pythonscript = __dirname + 'predictVoteBasedOnTwitterHandle.py'
+// const pythonscript = spawn('python', [__dirname + '/test.py', userHandle])
+
 console.log(pythonscript, 'says the following:  ')
 
 app.get('/api/elections', (req, res) => {
@@ -17,7 +19,7 @@ app.get('/api/elections', (req, res) => {
 app.get('/api/candidate/:handle', (req,res)=>{
   var userHandle = req.params.handle
   console.log('Received User Handle: ',userHandle)
-  var child = spawn('python',[pythonscript])
+  var child = spawn('python',[pythonscript, userHandle])
   child.stdout.on('data', function(data) {
     res.send(data.toString());
   })

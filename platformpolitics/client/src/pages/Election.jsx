@@ -25,19 +25,19 @@ class Election extends Component {
       <div>
         <Headbar backTo='/elections'/>
         <div className='electionsContainer'>
-          <div className='electionsTitle'><b>Illinois</b><br/>District 1:</div>
+          <div className='electionsTitle'><b>Texas</b><br/>Senate:</div>
           <div className='candidateOuterContainer'>
             <Candidate
-              img='/img/phanatic.jpg'
-              name='Phanatic'
+              img='/img/ted.jpg'
+              name='Ted Cruz'
               party='Republican'
-              handle='@True_Phanatic'
+              handle='@tedcruz'
               />
             <Candidate
-              img='/img/gritty.jpg'
-              name='Gritty'
+              img='/img/beto.jpg'
+              name='Beto ORourke'
               party='Democrat'
-              handle='@GrittyNHL'
+              handle='@BetoORourke'
               />
             <div className='electionsDescription'>enter a twitter handle:</div>
               <input className='electionsInput' type='text' placeholder='@i-am-a-handle...'  onChange={this.handleChange} />
