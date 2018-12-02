@@ -1,14 +1,13 @@
 from nlp import predict_vote, create_model
-from functionToGatherTweets import gatherTweets
+from gatherTweetsForCandidates import getCandidateFollowerTweets
 
-import pickle
 
 
 def create_race(name, candidates):
-    # gatherTweets(name, candidates[0], candidates[1])
+    getCandidateFollowerTweets(candidates[0], candidates[1], name, 100)
     create_model(name)
 
-#create_race("TXSen",[])
+create_race("tx2",["betoorourke", "tedcruz"])
 
 #-------------- Predicting a vote
 
