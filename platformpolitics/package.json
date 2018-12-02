@@ -17,8 +17,10 @@
   },
   "dependencies": {
     "concurrently": "^3.5.1",
+    "cors": "^2.8.5",
     "event-stream": "^4.0.1",
     "express": "^4.16.2",
+    "python-shell": "^1.0.6",
     "react-router-dom": "^4.3.1"
   }
 }

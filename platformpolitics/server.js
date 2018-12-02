@@ -1,14 +1,10 @@
 const express = require('express');
+const { exec } = require('child_process');
 
 const app = express();
 
+app.use(express.static('publictest'))
 
-var spawn = require('child_process').spawn
-
-const pythonscript = __dirname + 'predictVoteBasedOnTwitterHandle.py'
-// const pythonscript = spawn('python', [__dirname + '/test.py', userHandle])
-
-console.log(pythonscript, 'says the following:  ')
 
 app.get('/api/elections', (req, res) => {
   const elections = ['Illinois District 6', 'Wisconson Governor', 'Missouri Senate', 'Texas Senate', 'Minnesota District 8', 'Illinois District 9', 'Pennsylvania Governor', 'Wisconsin Senate', 'California District 42'];
@@ -24,6 +20,56 @@ app.get('/api/candidate/:handle', (req,res)=>{
     res.send(data.toString());
   })
 })
+
+app.get('/api/predict/:race/:handle', (req,res)=>{
+  console.log(req.params)
+  var handle = req.params.handle
+  var race = req.params.race
+
+  exec('python predict.py ' + race + ' ' + handle, {cwd:"python"}, (error, stdout, stderr) => {
+  // exec('python test.py', {cwd:"python"}, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`exec error: ${error}`);
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+    console.log(`stderr: ${stderr}`);
+    res.send(stdout)
+  });
+})
+
+app.post('/api/create/:race/:handle1.:handle2', (req,res)=>{
+  console.log(req.params)
+  var handle1 = req.params.handle1
+  var handle2 = req.params.handle2
+  var race = req.params.race
+
+  exec('python create.py ' + race + ' ' + handle1 + ' ' + handle2, {cwd:"python"}, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`exec error: ${error}`);
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+    console.log(`stderr: ${stderr}`);
+    res.send(stdout)
+  });
+  console.log("async continue, model building in progress (hopefully)")
+})
+
+app.get('/api/get_races', (req,res)=>{
+
+  exec('python get_races.py', {cwd:"python"}, (error, stdout, stderr) => {
+  // exec('python test.py', {cwd:"python"}, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`exec error: ${error}`);
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+    console.log(`stderr: ${stderr}`);
+    res.send(stdout)
+  });
+})
+
 
 const port = 5000;
 
