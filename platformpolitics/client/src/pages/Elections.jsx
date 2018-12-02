@@ -12,16 +12,18 @@ class Elections extends Component {
   }
 
   componentDidMount() {
-    fetch('/api/elections')
+    fetch('/api/get_races')
       .then(res => res.json())
       .then(elections => this.setState({elections}, () => console.log('Elections fetched...', elections)));
   }
 
   render() {
-    const electionsList = this.state.elections.map((election)=>{
+    const electionsList = this.state.elections.map((election, i)=>{
+      const electionName = election[0]
+      var link = '/election/' + electionName
       return(
-        <Link to='/election'>
-          <div className='electionsListElement'>{election}</div>
+        <Link key = {i} to={link}>
+          <div className='electionsListElement'>{electionName}</div>
         </Link>
       )
     })

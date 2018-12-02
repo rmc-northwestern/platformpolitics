@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Headbar from '../components/Headbar';
 import { Link } from 'react-router-dom';
 import Candidate from '../components/Candidate';
+import Loading from '../components/Loading';
 
 class SelectedCandidate extends Component {
 
@@ -14,7 +15,8 @@ class SelectedCandidate extends Component {
   }
 
   componentDidMount() {
-    var apiPath = '/api/candidate/' + this.props.match.params.handle
+    var apiPath = '/api/predict/' + this.props.match.params.race + '/' + this.props.match.params.handle
+    console.log("API PATH CALL: ",apiPath)
     fetch(apiPath)
       .then(res => res.text())
       .then(candidate => this.setState({selectedCandidate:candidate, apiSuccess:true}, () => console.log('Candidate selections fetched...', candidate)));
@@ -57,7 +59,7 @@ class SelectedCandidate extends Component {
       );
     }
     else{
-      return(<div>loading...</div>)
+      return(<Loading/>)
     }
 
   }

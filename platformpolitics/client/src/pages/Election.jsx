@@ -8,9 +8,31 @@ class Election extends Component {
   constructor(props){
     super(props);
     this.state = {
-      handle:''
+      handle:'',
+      race:'init',
+      elections:''
     }
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    fetch('/api/get_races')
+      .then(res => res.json())
+      .then(elections => this.setState({elections},
+        () => console.log('Elections fetched...', elections)))
+      .then(() => this.populateRace());
+  }
+
+  populateRace(){
+    var i;
+    for (i=0; i < this.state.elections.length; i++){
+      if (this.state.elections[i][0] === this.props.match.params.race){
+        this.setState({
+          race: this.state.elections[i]
+        })
+      }
+    }
+    console.log("RACE:",this.state.race)
   }
 
   handleChange(event) {
@@ -18,8 +40,8 @@ class Election extends Component {
   }
 
   render() {
-    console.log('current handle: ',this.state.handle)
-    var handleURL = '/selectedCandidate/' + this.state.handle
+    console.log('STATE', this.state)
+    var handleURL = '/selectedCandidate/' + this.props.match.params.race + '/' + this.state.handle
 
     return (
       <div>
@@ -29,13 +51,13 @@ class Election extends Component {
           <div className='candidateOuterContainer'>
             <Candidate
               img='/img/ted.jpg'
-              name='Ted Cruz'
+              name= {this.state.race[1]}
               party='Republican'
               handle='@tedcruz'
               />
             <Candidate
               img='/img/beto.jpg'
-              name='Beto ORourke'
+              name= {this.state.race[2]}
               party='Democrat'
               handle='@BetoORourke'
               />
