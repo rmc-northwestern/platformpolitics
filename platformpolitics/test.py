@@ -1,1 +1,1 @@
-print('@GrittyNHL')
+sprint('@GrittyNHL')
