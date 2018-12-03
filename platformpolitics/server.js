@@ -26,7 +26,7 @@ app.get('/api/predict/:race/:handle', (req,res)=>{
   var handle = req.params.handle
   var race = req.params.race
 
-  exec('python predict.py ' + race + ' ' + handle, {cwd:"python"}, (error, stdout, stderr) => {
+  exec('python3 predict.py ' + race + ' ' + handle, {cwd:"python"}, (error, stdout, stderr) => {
   // exec('python test.py', {cwd:"python"}, (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
@@ -44,7 +44,7 @@ app.post('/api/create/:race/:handle1.:handle2', (req,res)=>{
   var handle2 = req.params.handle2
   var race = req.params.race
 
-  exec('python create.py ' + race + ' ' + handle1 + ' ' + handle2, {cwd:"python"}, (error, stdout, stderr) => {
+  exec('python3 create.py ' + race + ' ' + handle1 + ' ' + handle2, {cwd:"python"}, (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
       return;
@@ -58,7 +58,7 @@ app.post('/api/create/:race/:handle1.:handle2', (req,res)=>{
 
 app.get('/api/get_races', (req,res)=>{
 
-  exec('python get_races.py', {cwd:"python"}, (error, stdout, stderr) => {
+  exec('python3 get_races.py', {cwd:"python"}, (error, stdout, stderr) => {
   // exec('python test.py', {cwd:"python"}, (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
@@ -69,6 +69,11 @@ app.get('/api/get_races', (req,res)=>{
     res.send(stdout)
   });
 })
+
+app.get('/api/test',  (req,res)=>{
+    res.send('lorem')
+  }
+)
 
 
 const port = 5000;
