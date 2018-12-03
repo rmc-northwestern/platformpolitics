@@ -50,7 +50,6 @@ class Election extends Component {
           <div className='electionsTitle'><b>Texas</b><br/>Senate:</div>
           <div className='candidateOuterContainer'>
             <Candidate
-              img='/img/ted.jpg'
               name= {this.state.race[1]}
               handle='@tedcruz'
               />
