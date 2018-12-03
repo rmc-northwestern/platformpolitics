@@ -4,6 +4,15 @@ import { Link } from 'react-router-dom';
 
 class ThankYou extends Component {
 
+  componentDidMount(){
+    var api = '/api/create/' + this.props.match.params.name + '/' + this.props.match.params.h1 + '/' + this.props.match.params.h2
+    fetch(api)
+      .then(res => res.json())
+      .then(elections => this.setState({elections:elections,apiSuccess:true},
+        () => console.log('Elections fetched...', elections)))
+      .then(() => this.populateRace());
+  }
+
   render() {
 
     return (
@@ -17,6 +26,7 @@ class ThankYou extends Component {
           <div className='electionsDescription'>enter your email to receive updates:</div>
           <input className='electionsInput' type='text' placeholder='email...' />
           <Link to='/'><button className='button1'>submit</button></Link>
+          <Link to='/'><button className='button1'>home</button></Link>
         </div>
       </div>
     );

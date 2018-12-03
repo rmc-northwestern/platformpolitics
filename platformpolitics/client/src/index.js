@@ -20,8 +20,8 @@ class Routes extends React.Component {
         <Route exact path="/elections" component={Elections}/>
         <Route exact path="/newelection" component={NewElection}/>
         <Route exact path="/election/:race" component={Election}/>
-        <Route exact path="/selectedCandidate/:race/:handle" component={SelectedCandidate}/>
-        <Route exact path='/thankyou' component={ThankYou}/>
+        <Route exact path="/selectedCandidate/:race/:c1/:c2/:handle" component={SelectedCandidate}/>
+        <Route exact path='/thankyou/:name/:h1/:h2' component={ThankYou}/>
       </div>
     )
   }

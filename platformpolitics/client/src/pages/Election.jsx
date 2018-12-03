@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Headbar from '../components/Headbar';
 import { Link } from 'react-router-dom';
 import Candidate from '../components/Candidate';
+import Loading from '../components/Loading';
 
 class Election extends Component {
 
@@ -10,7 +11,8 @@ class Election extends Component {
     this.state = {
       handle:'',
       race:'init',
-      elections:''
+      elections:'',
+      apiSuccess:false
     }
     this.handleChange = this.handleChange.bind(this);
   }
@@ -18,7 +20,7 @@ class Election extends Component {
   componentDidMount() {
     fetch('/api/get_races')
       .then(res => res.json())
-      .then(elections => this.setState({elections},
+      .then(elections => this.setState({elections:elections,apiSuccess:true},
         () => console.log('Elections fetched...', elections)))
       .then(() => this.populateRace());
   }
@@ -32,7 +34,6 @@ class Election extends Component {
         })
       }
     }
-    console.log("RACE:",this.state.race)
   }
 
   handleChange(event) {
@@ -40,31 +41,32 @@ class Election extends Component {
   }
 
   render() {
-    console.log('STATE', this.state)
-    var handleURL = '/selectedCandidate/' + this.props.match.params.race + '/' + this.state.handle
+    var handleURL = '/selectedCandidate/' + this.props.match.params.race + '/' + this.state.race[1] + '/' + this.state.race[2] + '/' + this.state.handle
 
-    return (
-      <div>
-        <Headbar backTo='/elections'/>
-        <div className='electionsContainer'>
-          <div className='electionsTitle'><b>Texas</b><br/>Senate:</div>
-          <div className='candidateOuterContainer'>
-            <Candidate
-              name= {this.state.race[1]}
-              handle='@tedcruz'
-              />
-            <Candidate
-              img='/img/beto.jpg'
-              name= {this.state.race[2]}
-              handle='@BetoORourke'
-              />
-            <div className='electionsDescription'>enter a twitter handle:</div>
-              <input className='electionsInput' type='text' placeholder='@i-am-a-handle...'  onChange={this.handleChange} />
-            <Link to={handleURL}><button className='button1'>test your tweets</button></Link>
+    if (this.state.apiSuccess){
+      return (
+        <div>
+          <Headbar backTo='/elections'/>
+          <div className='electionsContainer'>
+            <div className='electionsTitle'><b>{this.props.match.params.race}:</b></div>
+            <div className='candidateOuterContainer'>
+              <Candidate
+                handle= {this.state.race[1]}
+                />
+              <Candidate
+                handle= {this.state.race[2]}
+                />
+              <div className='electionsDescription'>enter a twitter handle:</div>
+                <input className='electionsInput' type='text' placeholder='@i-am-a-handle...'  onChange={this.handleChange} />
+              <Link to={handleURL}><button className='button1'>test your tweets</button></Link>
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
+    else{
+      return(<Loading/>)
+    }
   }
 }
 

@@ -148,7 +148,7 @@ a{
 
 .electionsTitle{
   width: 100%;
-  font-size: 42pt;
+  font-size: 24pt;
   font-weight: 200;
   color: #666666;
   line-height: .9;
@@ -238,7 +238,6 @@ a{
   background-color: #9bc5e8;
   border-radius: 20px;
   box-shadow: 1px 1px 30px -8px #777777;
-  padding-right: 10px;
 }
 
 .candidateImg{
@@ -287,11 +286,12 @@ a{
 
 .selectedCandidateName{
   width: 100%;
-  font-size: 28pt;
+  font-size: 18pt;
   font-weight: 700;
-  color: #666666;
+  color: #4682b4;
   text-align: left;
   margin-bottom: 10px;
+  text-decoration: underline;
 }
 
 .selectedCandidateKeywords{

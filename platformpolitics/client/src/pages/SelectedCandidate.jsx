@@ -22,35 +22,37 @@ class SelectedCandidate extends Component {
       .then(candidate => this.setState({selectedCandidate:candidate, apiSuccess:true}, () => console.log('Candidate selections fetched...', candidate)));
   }
 
+  receiveSelected(name){
+    this.setState({
+      selectedCandidate: name
+    })
+  }
+
   render() {
     console.log(this.state.selectedCandidate)
     var selectedCandidateTrimmed = this.state.selectedCandidate
-    selectedCandidateTrimmed = selectedCandidateTrimmed.substring(0, selectedCandidateTrimmed.length - 1);
+    var twitterurl = 'https://twitter.com/' + this.state.selectedCandidate
 
     if(this.state.apiSuccess){
       return (
         <div>
           <Headbar backTo='/elections'/>
           <div className='electionsContainer'>
-            <div className='electionsTitle'><b>Texas</b><br/>Senate:</div>
+            <div className='electionsTitle'><b>{this.props.match.params.race}:</b></div>
             <div className='candidateOuterContainer'>
               <Candidate
-                img='/img/ted.jpg'
-                name='Ted Cruz'
-                party='Republican'
-                handle='@tedcruz'
+                handle={this.props.match.params.c1}
                 selected={selectedCandidateTrimmed}
+                receiveSelected = {this.receiveSelected.bind(this)}
                 />
               <Candidate
-                img='/img/beto.jpg'
-                name='Beto ORourke'
-                party='Democrat'
-                handle='@BetoORourke'
+                handle={this.props.match.params.c2}
                 selected={selectedCandidateTrimmed}
+                receiveSelected = {this.receiveSelected.bind(this)}
                 />
               <div className='selectedCandidateContainer'>
                 <div className='selectedCandidateText'>your candidate:</div>
-                <div className='selectedCandidateName'>{this.state.selectedCandidate}</div>
+                <a href={twitterurl} target='_blank'><div className='selectedCandidateName'>@{this.state.selectedCandidate}</div></a>
               </div>
               <Link to='/elections'><button className='button1'>more elections...</button></Link>
             </div>

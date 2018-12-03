@@ -1,6 +1,0 @@
-(lp0
-V#voicesavebritton
-p1
-aVHave you found your way off the jet bridge?   I hear it's cold. @AbbeyRector
-p2
-a.

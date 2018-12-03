@@ -38,7 +38,7 @@ app.get('/api/predict/:race/:handle', (req,res)=>{
   });
 })
 
-app.post('/api/create/:race/:handle1.:handle2', (req,res)=>{
+app.get('/api/create/:race/:handle1/:handle2', (req,res)=>{
   console.log(req.params)
   var handle1 = req.params.handle1
   var handle2 = req.params.handle2
@@ -59,6 +59,22 @@ app.post('/api/create/:race/:handle1.:handle2', (req,res)=>{
 app.get('/api/get_races', (req,res)=>{
 
   exec('python3 get_races.py', {cwd:"python"}, (error, stdout, stderr) => {
+  // exec('python test.py', {cwd:"python"}, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`exec error: ${error}`);
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+    console.log(`stderr: ${stderr}`);
+    res.send(stdout)
+  });
+})
+
+app.get('/api/get_pic_name/:handle', (req,res)=>{
+  console.log(req.params)
+  var handle = req.params.handle
+
+  exec('python3 getProfileAndName.py ' + handle, {cwd:"python"}, (error, stdout, stderr) => {
   // exec('python test.py', {cwd:"python"}, (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
