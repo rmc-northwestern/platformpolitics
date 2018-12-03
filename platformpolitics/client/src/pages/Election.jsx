@@ -52,13 +52,11 @@ class Election extends Component {
             <Candidate
               img='/img/ted.jpg'
               name= {this.state.race[1]}
-              party='Republican'
               handle='@tedcruz'
               />
             <Candidate
               img='/img/beto.jpg'
               name= {this.state.race[2]}
-              party='Democrat'
               handle='@BetoORourke'
               />
             <div className='electionsDescription'>enter a twitter handle:</div>

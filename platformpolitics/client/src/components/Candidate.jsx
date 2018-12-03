@@ -15,7 +15,6 @@ class Candidate extends Component {
       <div className={this.selectClass()}>
         <img className='candidateImg' src={this.props.img} alt={this.props.handle}/>
         <div className='candidateName'>{this.props.name}</div>
-        <div className='candidateParty'>{this.props.party}</div>
         <a href={twitterurl} target='_blank'><div className='candidateHandle'>{this.props.handle}</div></a>
       </div>
     );
