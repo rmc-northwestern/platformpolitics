@@ -14,7 +14,7 @@ class Elections extends Component {
   componentDidMount() {
     fetch('/api/get_races')
       .then(res => res.json())
-      .then(elections => this.setState({elections}, () => console.log('Elections fetched...', elections)));
+      .then(elections => this.setState({elections}));
   }
 
   render() {

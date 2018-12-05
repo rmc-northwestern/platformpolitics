@@ -15,8 +15,7 @@ class Candidate extends Component {
   componentDidMount(){
     fetch('/api/get_races')
       .then(res => res.json())
-      .then(elections => this.setState({elections: elections, api: true},
-        () => console.log('Elections fetched...', elections)))
+      .then(elections => this.setState({elections: elections, api: true}))
       .then(() => this.populateRace());
   }
 
@@ -32,8 +31,7 @@ class Candidate extends Component {
     var apiURL = '/api/get_pic_name/' + this.props.handle
     fetch(apiURL)
       .then(res => res.json())
-      .then(candidate => this.setState({candidate},
-        () => console.log('Candidate fetched...', candidate)))
+      .then(candidate => this.setState({candidate}))
     }
   }
 

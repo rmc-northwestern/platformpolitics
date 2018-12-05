@@ -19,7 +19,7 @@ class SelectedCandidate extends Component {
     console.log("API PATH CALL: ",apiPath)
     fetch(apiPath)
       .then(res => res.text())
-      .then(candidate => this.setState({selectedCandidate:candidate, apiSuccess:true}, () => console.log('Candidate selections fetched...', candidate)));
+      .then(candidate => this.setState({selectedCandidate:candidate, apiSuccess:true}));
   }
 
   receiveSelected(name){
