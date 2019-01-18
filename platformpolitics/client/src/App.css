@@ -181,6 +181,12 @@ a{
   text-align: left;
 }
 
+.electionsListElementImg{
+  height: 20px;
+  margin: 5px;
+  display: inline-block;
+}
+
 .electionsDescription{
   text-align: left;
   font-size: 14pt;

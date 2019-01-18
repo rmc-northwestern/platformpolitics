@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Candidate from '../components/Candidate';
 import Loading from '../components/Loading';
 
-class Election extends Component {
+class ElectionDetails extends Component {
 
   constructor(props){
     super(props);
@@ -41,18 +41,13 @@ class Election extends Component {
 
   render() {
     var handleURL = '/selectedCandidate/' + this.props.match.params.race + '/' + this.state.race[1] + '/' + this.state.race[2] + '/' + this.state.handle
-    var detailsLink = '/election/' + this.props.match.params.race + '/details'
+
     if (this.state.apiSuccess){
       return (
         <div>
           <Headbar backTo='/elections'/>
           <div className='electionsContainer'>
-            <div className='electionsTitle'>
-              <b>{this.props.match.params.race}:</b>
-              <Link to={detailsLink}>
-                <img src='/img/info.png' className='electionsListElementImg' alt='info'/>
-              </Link>
-            </div>
+            <div className='electionsTitle'><b>{this.props.match.params.race} DETAILS:</b></div>
             <div className='candidateOuterContainer'>
               <Candidate
                 handle= {this.state.race[1]}
@@ -74,4 +69,4 @@ class Election extends Component {
   }
 }
 
-export default Election;
+export default ElectionDetails;

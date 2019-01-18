@@ -6,6 +6,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import App from './App';
 import Elections from './pages/Elections';
 import Election from './pages/Election';
+import ElectionDetails from './pages/ElectionDetails';
 import NewElection from './pages/NewElection';
 import SelectedCandidate from './pages/SelectedCandidate';
 import ThankYou from './pages/ThankYou';
@@ -20,6 +21,7 @@ class Routes extends React.Component {
         <Route exact path="/elections" component={Elections}/>
         <Route exact path="/newelection" component={NewElection}/>
         <Route exact path="/election/:race" component={Election}/>
+        <Route exact path="/election/:race/details" component={ElectionDetails}/>
         <Route exact path="/selectedCandidate/:race/:c1/:c2/:handle" component={SelectedCandidate}/>
         <Route exact path='/thankyou/:name/:h1/:h2' component={ThankYou}/>
       </div>

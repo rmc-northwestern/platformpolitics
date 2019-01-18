@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import Headbar from './Headbar';
 
 class Loading extends Component {
 
   render() {
     return (
       <div style={{textAlign:'center'}}>
-        <Headbar/>
         <div style={{height:'200px'}}></div>
         <div className="sk-cube-grid">
           <div className="sk-cube sk-cube1"></div>
