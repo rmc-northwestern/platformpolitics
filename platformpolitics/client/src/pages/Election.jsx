@@ -47,11 +47,11 @@ class Election extends Component {
         <div>
           <Headbar backTo='/elections'/>
           <div className='electionsContainer'>
+            <Link to={detailsLink}>
+              <img src='/img/info.png' className='electionDetailsImg' alt='info'/>
+            </Link>
             <div className='electionsTitle'>
               <b>{this.props.match.params.race}:</b>
-              <Link to={detailsLink}>
-                <img src='/img/info.png' className='electionsListElementImg' alt='info'/>
-              </Link>
             </div>
             <div className='candidateOuterContainer'>
               <Candidate
