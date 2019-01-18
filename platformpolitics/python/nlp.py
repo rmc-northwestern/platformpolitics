@@ -11,20 +11,24 @@ from gatherIndividualsTweets import getPersonsData
 
 import numpy as np
 import os, pickle
+import datetime
 
-def create_model(name):
+def create_model(name, train_set_size = 1000):
     labels = []
     users = []
 
     test_labels = []
     test_users = []
 
+    classes = []
+
 
 
     #create labels and list of file paths, ignore non .txt
     for folder in os.listdir("races/" + name):
         print("races/" + name + '/' + folder)
-        for filename in os.listdir("races/" + name + '/' + folder)[:1000]:
+        classes.append(folder)
+        for filename in os.listdir("races/" + name + '/' + folder)[:train_set_size]:
             if filename.endswith(".txt"):
                 labels.append(folder)
                 users.append("races/" + name + '/' + folder + '/' + filename)
@@ -32,7 +36,7 @@ def create_model(name):
                 continue
         # #The first 1000 users are training set, the other 500 are test
 
-        # for filename in os.listdir("races/" + name + '/' + folder)[1000:]:
+        # for filename in os.listdir("races/" + name + '/' + folder)[train_set_size:]:
         #     if filename.endswith(".txt"):
         #         test_labels.append(folder)
         #         test_users.append("races/" + name + '/' + folder + '/' + filename)
@@ -114,6 +118,8 @@ def create_model(name):
     with open(clf, "wb") as f:
         pickle.dump(NBclf, f)
 
+    create_details(name, classes, vectorizer, vectorizer_2, NBclf, train_set_size)
+
 
 # In[129]:
 
@@ -144,3 +150,46 @@ def predict_vote(name, handle):
     return model.predict(freq_vect)
 
 #np.mean(predicted == test_labels)
+
+
+def create_details(name, classes, vect1, vect2, model, train_set_size):
+    n = 25
+
+    cl1_ind = np.argpartition(model.theta_[0]-model.theta_[1], 0 - n)[(0 - n):]
+    cl2_ind = np.argpartition(model.theta_[1]-model.theta_[0], 0 - n)[(0 - n):]
+
+    details = {}
+
+    details['name'] = name
+    details['classes'] = classes
+
+    print("----------------------------")
+
+    cl1_words = []
+
+    for key, val in vect1.vocabulary_.items():
+        if val in cl1_ind:
+            cl1_words.append(key)
+    for key, val in vect2.vocabulary_.items():
+        if val+len(vect1.vocabulary_.items()) in cl1_ind:
+            cl1_words.append(key)
+
+    print("----------------------------")
+
+    cl2_words = []
+
+    for key, val in vect1.vocabulary_.items():
+        if val in cl2_ind:
+            cl2_words.append(key)
+    for key, val in vect2.vocabulary_.items():
+        if val+len(vect1.vocabulary_.items()) in cl2_ind:
+            cl2_words.append(key)
+
+    details['most_common_words'] = [cl1_words, cl2_words]
+
+    now = datetime.datetime.now()
+    details['time'] = now.strftime("%Y-%m-%d %H:%M")
+
+    save = "models/" + name + "/details.txt"
+    with open(save, "wb") as f:
+        pickle.dump(details, f)

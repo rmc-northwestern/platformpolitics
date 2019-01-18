@@ -8,20 +8,20 @@ var py = require('./pyVer.js');
 app.use(express.static('publictest'))
 
 
-app.get('/api/elections', (req, res) => {
-  const elections = ['Illinois District 6', 'Wisconson Governor', 'Missouri Senate', 'Texas Senate', 'Minnesota District 8', 'Illinois District 9', 'Pennsylvania Governor', 'Wisconsin Senate', 'California District 42'];
-
-  res.json(elections);
-});
-
-app.get('/api/candidate/:handle', (req,res)=>{
-  var userHandle = req.params.handle
-  console.log('Received User Handle: ',userHandle)
-  var child = spawn('python',[pythonscript, userHandle])
-  child.stdout.on('data', function(data) {
-    res.send(data.toString());
-  })
-})
+// app.get('/api/elections', (req, res) => {
+//   const elections = ['Illinois District 6', 'Wisconson Governor', 'Missouri Senate', 'Texas Senate', 'Minnesota District 8', 'Illinois District 9', 'Pennsylvania Governor', 'Wisconsin Senate', 'California District 42'];
+//
+//   res.json(elections);
+// });
+//
+// app.get('/api/candidate/:handle', (req,res)=>{
+//   var userHandle = req.params.handle
+//   console.log('Received User Handle: ',userHandle)
+//   var child = spawn('python',[pythonscript, userHandle])
+//   child.stdout.on('data', function(data) {
+//     res.send(data.toString());
+//   })
+// })
 
 app.get('/api/predict/:race/:handle', (req,res)=>{
   console.log(req.params)
@@ -61,6 +61,22 @@ app.get('/api/create/:race/:handle1/:handle2', (req,res)=>{
 app.get('/api/get_races', (req,res)=>{
 
   exec(py.python + ' get_races.py', {cwd:"python"}, (error, stdout, stderr) => {
+  // exec(py.python + ' test.py', {cwd:"python"}, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`exec error: ${error}`);
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+    console.log(`stderr: ${stderr}`);
+    res.send(stdout)
+  });
+})
+
+app.get('/api/get_model_details/:name', (req,res)=>{
+  console.log(req.params)
+  var name = req.params.name
+
+  exec(py.python + ' get_model_details.py ' + name, {cwd:"python"}, (error, stdout, stderr) => {
   // exec(py.python + ' test.py', {cwd:"python"}, (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);

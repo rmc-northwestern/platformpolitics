@@ -1,0 +1,4 @@
+model improvement- different models - stemming/lema
+regex "i will vote for"
+indicative words for model and new obs
+study on who follows both

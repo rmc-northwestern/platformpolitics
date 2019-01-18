@@ -2,12 +2,12 @@ refresh this page to send a new request
 
 <script>
   var http = new XMLHttpRequest();
-  var url = 'http://localhost:5000/api/create/Illinois_6/SeanCasten.PeterRoskam';
+  var url = 'http://localhost:5000/api/get_model_details/Bezos_Musk';
   // var url = 'http://localhost:5000/api/predict/tx2/barackobama';
   // var url = 'http://localhost:5000/api/get_pic_name/tedcruz';
   var params = 'orem=ipsum&name=binny';
   // http.open('POST', url, true);
-  http.open('POST', url, true);
+  http.open('GET', url, true);
 
   //Send the proper header information along with the request
   http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
