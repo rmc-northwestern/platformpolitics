@@ -2,3 +2,10 @@
 /client/node_modules
 package-lock.json
 pyVer.js
+sd.pem
+keys.txt
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

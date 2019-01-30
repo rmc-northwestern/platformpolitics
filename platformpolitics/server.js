@@ -5,7 +5,7 @@ const app = express();
 
 var py = require('./pyVer.js');
 
-app.use(express.static('publictest'))
+app.use(express.static('client/build'))
 
 
 // app.get('/api/elections', (req, res) => {
@@ -24,7 +24,9 @@ app.use(express.static('publictest'))
 // })
 
 app.get('/api/predict/:race/:handle', (req,res)=>{
+  console.log('/api/predict/:race/:handle')
   console.log(req.params)
+
   var handle = req.params.handle
   var race = req.params.race
 
@@ -41,7 +43,9 @@ app.get('/api/predict/:race/:handle', (req,res)=>{
 })
 
 app.get('/api/create/:race/:handle1/:handle2', (req,res)=>{
+  console.log('/api/create/:race/:handle1/:handle2')
   console.log(req.params)
+
   var handle1 = req.params.handle1
   var handle2 = req.params.handle2
   var race = req.params.race
@@ -59,6 +63,8 @@ app.get('/api/create/:race/:handle1/:handle2', (req,res)=>{
 })
 
 app.get('/api/get_races', (req,res)=>{
+  console.log('/api/get_races')
+  console.log(req.params)
 
   exec(py.python + ' get_races.py', {cwd:"python"}, (error, stdout, stderr) => {
   // exec(py.python + ' test.py', {cwd:"python"}, (error, stdout, stderr) => {
@@ -73,6 +79,7 @@ app.get('/api/get_races', (req,res)=>{
 })
 
 app.get('/api/get_model_details/:name', (req,res)=>{
+  console.log('/api/get_model_details/:name')
   console.log(req.params)
   var name = req.params.name
 
@@ -110,6 +117,6 @@ app.get('/api/test',  (req,res)=>{
 )
 
 
-const port = 5000;
+const port = 80;
 
 app.listen(port, () => `Server running on port ${port}`);
