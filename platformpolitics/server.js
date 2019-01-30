@@ -99,7 +99,7 @@ app.get('/api/get_pic_name/:handle', (req,res)=>{
   console.log(req.params)
   var handle = req.params.handle
 
-  exec(py.python + ' getProfileAndName.py ' + handle, {cwd:"python"}, (error, stdout, stderr) => {
+  exec(py.python + ' getProfileandName.py ' + handle, {cwd:"python"}, (error, stdout, stderr) => {
   // exec(py.python + ' test.py', {cwd:"python"}, (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
@@ -117,6 +117,6 @@ app.get('/api/test',  (req,res)=>{
 )
 
 
-const port = 80;
+const port = 8081;
 
 app.listen(port, () => `Server running on port ${port}`);
