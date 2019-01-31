@@ -262,6 +262,12 @@ a{
   color: #333333;
 }
 
+.candidateInfo{
+  font-size: 10pt;
+  font-weight: 300;
+  color: #999;
+}
+
 .candidateParty{
   font-size: 10pt;
   font-weight: 600;
