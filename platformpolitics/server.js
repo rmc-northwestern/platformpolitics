@@ -117,6 +117,4 @@ app.get('/api/test',  (req,res)=>{
 )
 
 
-const port = 8081;
-
-app.listen(port, () => `Server running on port ${port}`);
+app.listen(py.port, () => "Server running on port ${py.port}");
