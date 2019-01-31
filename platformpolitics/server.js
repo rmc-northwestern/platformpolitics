@@ -6,7 +6,6 @@ const app = express();
 var py = require('./pyVer.js');
 
 app.use(express.static('client/build'))
-//changey change
 
 
 // app.get('/api/elections', (req, res) => {
