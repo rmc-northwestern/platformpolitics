@@ -118,7 +118,7 @@ def create_model(name, train_set_size = 1000):
     with open(clf, "wb") as f:
         pickle.dump(NBclf, f)
 
-    create_details(name, classes, vectorizer, vectorizer_2, NBclf, train_set_size)
+    create_details(name, classes, vectorizer, vectorizer_2, NBclf, len(labels)/2)
 
 
 # In[129]:
@@ -152,7 +152,7 @@ def predict_vote(name, handle):
 #np.mean(predicted == test_labels)
 
 
-def create_details(name, classes, vect1, vect2, model, train_set_size):
+def create_details(name, classes, vect1, vect2, model, model_size):
     n = 25
 
     cl1_ind = np.argpartition(model.theta_[0]-model.theta_[1], 0 - n)[(0 - n):]
@@ -162,6 +162,7 @@ def create_details(name, classes, vect1, vect2, model, train_set_size):
 
     details['name'] = name
     details['classes'] = classes
+    details['size'] = model_size
 
     print("----------------------------")
 

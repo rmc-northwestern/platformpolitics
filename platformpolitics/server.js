@@ -6,6 +6,7 @@ const app = express();
 var py = require('./pyVer.js');
 
 app.use(express.static('client/build'))
+//changey change
 
 
 // app.get('/api/elections', (req, res) => {
@@ -116,5 +117,4 @@ app.get('/api/test',  (req,res)=>{
   }
 )
 
-
-app.listen(py.port, () => "Server running on port ${py.port}");
+app.listen(py.port, () => `Server running on port ${py.port}`);

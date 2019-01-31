@@ -1,4 +1,4 @@
-/client/node_modules
-/node_modules
-/python/races/Texas_Senate
-/python/models/Texas_Senate
+client/node_modules
+node_modules
+python/races/Texas_Senate
+python/models/Texas_Senate
