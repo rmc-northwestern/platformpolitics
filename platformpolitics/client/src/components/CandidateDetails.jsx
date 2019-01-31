@@ -45,6 +45,11 @@ class Candidate extends Component {
   render() {
     var twitterurl = 'https://twitter.com/' + this.props.handle
     var imgURL = '/img/fallback.png'
+    const words = this.props.words.map((word, i) => {
+      return(
+        <div key={i}>{word}</div>
+      )
+    })
     if (this.state.candidate[1]){imgURL = this.state.candidate[1]}
     return (
       <div className={this.selectClass()}>
@@ -54,7 +59,7 @@ class Candidate extends Component {
         <div className='candidateInfo'>
           <b>Most Predictive Words:</b>
           <br/>
-          {this.props.words[0]}<br/>{this.props.words[1]}<br/>{this.props.words[2]}
+          {words}
         </div>
       </div>
     );

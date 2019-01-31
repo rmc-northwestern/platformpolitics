@@ -66,11 +66,11 @@ class ElectionDetails extends Component {
             <div className='candidateOuterContainer'>
               <CandidateDetails
                 handle= {this.state.race[1]}
-                words = {this.state.details.details.most_common_words[1].slice(0,3)}
+                words = {this.state.details.details.most_common_words[1]}
                 />
               <CandidateDetails
                 handle= {this.state.race[2]}
-                words = {this.state.details.details.most_common_words[0].slice(0,3)}
+                words = {this.state.details.details.most_common_words[0]}
                 />
             </div>
           </div>
