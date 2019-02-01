@@ -19,6 +19,10 @@ a{
   cursor: pointer;
 }
 
+.App{
+  text-align: center;
+}
+
 .button1{
   background-color: #4682b4;
   border-radius: 20px;
@@ -27,8 +31,23 @@ a{
   color: white;
   border: 0px;
   font-size: 13pt;
-  margin: 20px 40px;
+  margin: 20px auto;
   text-decoration: none;
+  font-weight: 300;
+  max-width: 200px;
+}
+
+.buttonAbs{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: #4682b4;
+  box-shadow: 1px 1px 20px -2px #888;
+  color: white;
+  font-size: 50pt;
   font-weight: 300;
 }
 
@@ -101,9 +120,11 @@ a{
 /* HOME CLASSES */
 
 .homeContainer{
-  margin: 0px 10px;
-  padding: 10px;
+  margin: auto;
+  padding: 10px 20px;
   text-align: center;
+  max-width: 800px;
+  position: relative;
 }
 
 .homeTitle{
@@ -141,9 +162,11 @@ a{
 /* ELECTIONS CLASSES */
 
 .electionsContainer{
-  margin: 0px 10px;
-  padding: 10px;
+  margin: auto;
+  padding: 10px 20px;
   text-align: center;
+  max-width: 800px;
+
 }
 
 .electionsTitle{
@@ -158,26 +181,22 @@ a{
 }
 
 .electionsListContainer{
-  text-align: left;
   overflow: scroll;
-  max-height: 330px;
   text-align: center;
 }
 
 .electionsListElement{
   background-color: #9bc5e8;
   border-radius: 20px;
-  padding: 10px 18px;
+  padding: 10px 18px 10px 30px;
   box-shadow: 1px 1px 5px .5px #999999;
   color: white;
   border: 0px;
-  margin: 12px 0px;
   font-size: 14pt;
   text-decoration: none;
   font-weight: 700;
   letter-spacing: 1px;
-  width: 85%;
-  margin-left: 2px;
+  margin: 10px 5px;
   text-align: left;
 }
 
@@ -190,7 +209,6 @@ a{
 }
 
 .electionsDescription{
-  text-align: left;
   font-size: 14pt;
   color: #555555;
   font-weight: 200;
@@ -209,6 +227,7 @@ a{
   margin: 10px 10px 30px 10px;
   border: 0px;
   box-shadow: 1px 1px 5px 1px #bbbbbb;
+  max-width: 500px;
 }
 
 

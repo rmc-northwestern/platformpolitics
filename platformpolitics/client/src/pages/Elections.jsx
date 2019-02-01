@@ -22,7 +22,7 @@ class Elections extends Component {
       const electionName = election[0]
       var link = '/election/' + electionName
       return(
-        <Link key = {i} to={link}>
+        <Link key={i} to={link}>
           <div className='electionsListElement'>{electionName}</div>
         </Link>
       )
@@ -34,7 +34,7 @@ class Elections extends Component {
         <div className='electionsContainer'>
           <div className='electionsTitle'>current elections:</div>
           <div className='electionsListContainer'>{electionsList}</div>
-          <Link to='/newelection'><button className='button1'>build new model</button></Link>
+          <Link to='/newelection'><button className='buttonAbs'><sup>+</sup></button></Link>
         </div>
       </div>
     );

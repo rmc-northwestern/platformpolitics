@@ -9,7 +9,7 @@ class Home extends Component {
     return (
       <div>
         <div className='homeContainer'>
-          <div className='homeTitle'>platform politics.</div>
+          <div className='homeTitle'>predictive politics.</div>
           <div className='homeSubtitle'>where what you say, <br/>says you how you'll vote.</div>
 
           <img className='homeImg' src='/img/bird.png' alt='home-content' />

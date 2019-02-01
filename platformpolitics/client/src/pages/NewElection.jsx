@@ -34,7 +34,7 @@ class NewElection extends Component {
         <Headbar backTo='/'/>
         <div className='electionsContainer'>
           <div className='electionsTitle'>build a new model:</div>
-
+          <br/><br/>
           <div className='electionsDescription'>Name your election model:</div>
           <input className='electionsInput' type='text' placeholder='name...' onChange={this.handleChangeName} />
 
@@ -43,7 +43,7 @@ class NewElection extends Component {
 
           <div className='electionsDescription'>candidate 2 twitter handle:</div>
           <input className='electionsInput' type='text' placeholder='@i-too-am-a-handle...' onChange={this.handleChangeH2} />
-
+          <br/>
           <Link to={nextURL}><button className='button1'>build model</button></Link>
         </div>
       </div>

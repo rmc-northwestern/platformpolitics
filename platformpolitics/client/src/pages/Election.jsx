@@ -60,9 +60,11 @@ class Election extends Component {
               <Candidate
                 handle= {this.state.race[2]}
                 />
+              <br/><br/><br/>
               <div className='electionsDescription'>enter a twitter handle:</div>
-                <input className='electionsInput' type='text' placeholder='@i-am-a-handle...'  onChange={this.handleChange} />
-              <Link to={handleURL}><button className='button1'>test your tweets</button></Link>
+              <input className='electionsInput' type='text' placeholder='@i-am-a-handle...'  onChange={this.handleChange} />
+              <br/>
+              <Link to={handleURL}><button className='button1'>test tweets</button></Link>
             </div>
           </div>
         </div>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Headbar from '../components/Headbar';
-import { Link } from 'react-router-dom';
 import CandidateDetails from '../components/CandidateDetails';
 import Loading from '../components/Loading';
 
