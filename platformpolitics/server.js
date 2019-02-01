@@ -116,5 +116,4 @@ app.get('/api/test',  (req,res)=>{
   }
 )
 
-
-app.listen(py.port, () => "Server running on port ${py.port}");
+app.listen(py.port, () => `Server running on port ${py.port}`);
