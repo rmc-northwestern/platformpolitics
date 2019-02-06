@@ -208,7 +208,7 @@ a{
 }
 
 .electionsListContainer{
-  overflow: scroll;
+  overflow: auto;
   text-align: center;
 }
 
