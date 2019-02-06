@@ -14,8 +14,12 @@ class Home extends Component {
 
           <img className='homeImg' src='/img/bird.png' alt='home-content' />
 
-          <Link to='/elections'><div className='button1'>see current elections</div></Link>
-          <Link to='/newelection'><div className='button1'>build new model</div></Link>
+          <Link to='/elections'><div className='button1'>predict a vote</div></Link>
+          <Link to='/newelection'><div className='button1'>build new election model</div></Link>
+          <div className='homeDescriptionHeading'>How it Works</div>
+          <div className='homeDescription'>Predictive Politics allows you to predict how a given Twitter user would vote in an election.  You first choose an election, then give a Twitter handle. Predictive Politics downloads their latest tweets and uses natural language processing machine learning techniques to predict their vote in the chosen election.</div>
+          <div className='homeDescription'>If you don't see the election you want, you can create a new one by giving the Twitter handles of two candidates. Prediction Politics will then automatically collect data from Twitter and use it to build a model of that election.</div>
+          <div className='homeDescriptionLast'>Due to rate limiting on the free tier of Twitter API, models are currently set to an extremely small sample size (only 50 training examples per candidate) to ensure a building time of less than 2 minutes.  This means they may not be fully accurate all the time.</div>
         </div>
       </div>
     );

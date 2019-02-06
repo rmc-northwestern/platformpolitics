@@ -38,11 +38,13 @@ class Headbar extends Component {
           {this.renderBack()}
           {this.renderSidebar()}
           <Link to='/'><img className='headbarLogo' src='/img/logo.png' alt='logo'/></Link>
-          <img className='headbarMenu' src='/img/menu.png' alt='menu' onClick={()=>this.toggleSidebar()}/>
+
         </div>
       </div>
     );
   }
 }
+
+  // <img className='headbarMenu' src='/img/menu.png' alt='menu' onClick={()=>this.toggleSidebar()}/>
 
 export default Headbar;

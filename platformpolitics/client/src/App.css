@@ -153,6 +153,33 @@ a{
   left: 20px;
 }
 
+.homeDescriptionHeading{
+  font-size: 28pt;
+  font-weight: 200;
+  color: #444444;
+  padding: 80px 20px 20px 20px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.homeDescription{
+  font-size: 14pt;
+  font-weight: 200;
+  color: #444444;
+  padding: 0px 20px 20px 20px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.homeDescriptionLast{
+  font-size: 14pt;
+  font-weight: 200;
+  color: #444444;
+  padding: 0px 20px 100px 20px;
+  line-height: 1.4;
+  text-align: left;
+}
+
 
 
 
