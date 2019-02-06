@@ -23,6 +23,7 @@ app.use(express.static('client/build'))
 //   })
 // })
 
+
 app.get('/api/predict/:race/:handle', (req,res)=>{
   console.log('/api/predict/:race/:handle')
   console.log(req.params)
@@ -30,7 +31,7 @@ app.get('/api/predict/:race/:handle', (req,res)=>{
   var handle = req.params.handle
   var race = req.params.race
 
-  exec(py.python + ' predict.py ' + race + ' ' + handle, {cwd:"python"}, (error, stdout, stderr) => {
+  exec(py.python + ' predict.py "' + race + '" ' + handle, {cwd:"python"}, (error, stdout, stderr) => {
   // exec(py.python + ' test.py', {cwd:"python"}, (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
@@ -50,7 +51,7 @@ app.get('/api/create/:race/:handle1/:handle2', (req,res)=>{
   var handle2 = req.params.handle2
   var race = req.params.race
 
-  exec(py.python + ' create.py ' + race + ' ' + handle1 + ' ' + handle2, {cwd:"python"}, (error, stdout, stderr) => {
+  exec(py.python + ' create.py "' + race + '" ' + handle1 + ' ' + handle2, {cwd:"python"}, (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
       return;
@@ -83,7 +84,7 @@ app.get('/api/get_model_details/:name', (req,res)=>{
   console.log(req.params)
   var name = req.params.name
 
-  exec(py.python + ' get_model_details.py ' + name, {cwd:"python"}, (error, stdout, stderr) => {
+  exec(py.python + ' get_model_details.py "' + name + '"', {cwd:"python"}, (error, stdout, stderr) => {
   // exec(py.python + ' test.py', {cwd:"python"}, (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
