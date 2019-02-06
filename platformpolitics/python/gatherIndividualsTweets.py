@@ -15,7 +15,7 @@ def getPersonsData(twitterHandle):
     try:
         personTweets = api.user_timeline(id=twitterHandle, count=200)
     except:
-        print("Could not get this user's tweets.  Ensure that handle is entered correctly and that this Twitter account is public")
+        print("Could not get this user's tweets.  The Twitter handle is either invalid or private.")
         return
     personTweetText = []
     for tweet in personTweets:

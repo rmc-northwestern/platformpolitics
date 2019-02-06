@@ -125,6 +125,9 @@ def create_model(name, train_set_size = 1000):
 
 def predict_vote(name, handle):
     in_tweets = getPersonsData(handle)
+    if in_tweets == None:
+        return ""
+
 
     predict_corpus = ""
 
@@ -147,7 +150,7 @@ def predict_vote(name, handle):
     freq_vect_2 = vect2.transform([predict_corpus]).toarray()
 
     freq_vect = np.block([[freq_vect_1, freq_vect_2]])
-    return model.predict(freq_vect)
+    return str(model.predict(freq_vect)[0])
 
 #np.mean(predicted == test_labels)
 

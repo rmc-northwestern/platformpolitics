@@ -32,7 +32,7 @@ class Elections extends Component {
       <div>
         <Headbar backTo='/'/>
         <div className='electionsContainer'>
-          <div className='electionsTitle'>current elections:</div>
+          <div className='electionsTitle'>currently modeled elections:</div>
           <div className='electionsListContainer'>{electionsList}</div>
           <Link to='/newelection'><button className='buttonAbs'><sup>+</sup></button></Link>
         </div>

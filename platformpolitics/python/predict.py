@@ -12,6 +12,6 @@ handle = sys.argv[2]
 
 
 
-sys.stdout.write(str(predict_vote(race, handle)[0]))
+sys.stdout.write(predict_vote(race, handle))
 
 #sublinear tf

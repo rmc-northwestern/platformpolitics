@@ -64,7 +64,7 @@ class Election extends Component {
               <div className='electionsDescription'>enter a twitter handle:</div>
               <input className='electionsInput' type='text' placeholder='@i-am-a-handle...'  onChange={this.handleChange} />
               <br/>
-              <Link to={handleURL}><button className='button1'>test tweets</button></Link>
+              <Link to={handleURL}><button className='button1'>predict</button></Link>
             </div>
           </div>
         </div>
