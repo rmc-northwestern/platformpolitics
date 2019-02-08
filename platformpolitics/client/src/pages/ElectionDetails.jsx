@@ -42,7 +42,7 @@ class ElectionDetails extends Component {
 
   renderModelSize(){
     if (this.state.details.details.size){
-      return(<div><b>Number of Tweets Analyzed: </b>{this.state.details.details.time}</div>)
+      return(<div>Trained on <b>{this.state.details.details.size}</b> Twitter users per candidate</div>)
     }
   }
 
@@ -59,7 +59,7 @@ class ElectionDetails extends Component {
           <Headbar backTo={backURL}/>
           <div className='electionsContainer'>
             <div className='electionsTitle'><b>{this.props.match.params.race} DETAILS:</b></div>
-            <div><b>Model Created at </b>{this.state.details.details.time}</div>
+            <div>Model Created at <b>{this.state.details.details.time}</b></div>
             {this.renderModelSize()}
             <br/><br/>
             <div className='candidateOuterContainer'>
