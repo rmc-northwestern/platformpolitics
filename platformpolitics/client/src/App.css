@@ -162,11 +162,20 @@ a{
   text-align: left;
 }
 
+.homeDescriptionSubHeading{
+  font-size: 16pt;
+  font-weight: 200;
+  color: #444444;
+  padding: 0px 20px 20px 20px;
+  line-height: 1.4;
+  text-align: left;
+}
+
 .homeDescription{
   font-size: 14pt;
   font-weight: 200;
   color: #444444;
-  padding: 0px 20px 20px 20px;
+  padding: 0px 20px 40px 45px;
   line-height: 1.4;
   text-align: left;
 }
@@ -175,7 +184,7 @@ a{
   font-size: 14pt;
   font-weight: 200;
   color: #444444;
-  padding: 0px 20px 100px 20px;
+  padding: 0px 20px 100px 45px;
   line-height: 1.4;
   text-align: left;
 }
