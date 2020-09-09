@@ -1,9 +1,12 @@
 /node_modules
 /client/node_modules
 package-lock.json
-pyVer.js
+#pyVer.js
 sd.pem
 keys.txt
+
+python/races/Texas_Senate
+python/models/Texas_Senate
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
